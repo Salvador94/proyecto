@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}medicamentos{% endblock %}
+
+{% block Barra %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="#"> Lista de medicamentos <span class="sr-only">(current)</span></a>
+      </li>
+      <li><a class="nav-link" href="/medicamentos/crear"> Agregar medicamentos <span class="sr-only">(current)</span></a></li>
+    </ul>
+  </div>
+</nav>
+{% endblock %}
+
+{% block medicamento %}x
+
+<div class="container">
+  Buscar: {% include "Busqueda.html" %}
+</div>
+
+  <hr/>
+  {% for i in object_list %}
+    <div class="jumbotron">
+      <div class="col-sm-8 mx-auto">
+        <h1>Titulo: {{i.Nombre}}</h1>
+        <p>Gramos: {{i.Gramos}}</p>
+        <p>Agregado en: {{i.created}}</p>
+        <p></p>
+        <p>
+          <a class="btn btn-primary" href="detail/{{i.id}}" role="button">Más información</a>
+          <a class="btn btn-danger" href="/medicamentos/detail/{{i.id}}/eliminar/" role="button">Eliminar</a><br>
+          <a class="btn btn-success" href="/medicamentos/detail/{{i.id}}/actualizar/" role="button">Actualizar</a>
+        </p>
+      </div>
+    </div>
+  {% endfor %}
+{% endblock %}
+
+<!-- {% for object in object_list %}
+<p>{{object.user}}</p>
+<p>{{object}}</p>
+<a href="/tweet/detailc/{{object.id}}/">Detalle tweet</a>
+<p>{{object.created|timesince}}</p>
+
+{% endfor %} -->

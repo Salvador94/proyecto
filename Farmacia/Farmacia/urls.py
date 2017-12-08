@@ -23,4 +23,6 @@ from medicamentos.views import home
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^medicamentos/$', home, name= 'home'),
+    url(r'^medicamentos/list$', lista_medicamentos, name = 'list')
+    url(r'^medicamentos/detail$', detalle_medicamentos, name = 'detail')
 ]
