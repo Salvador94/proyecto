@@ -6,7 +6,7 @@ from django.db import models
 
 # Create your models here.
 
-class medicamentos(models.Model):
+class medicamento(models.Model):
     user = models.Foreignkey(settings.AUTH_USER_MODEL)
     Nombre = models.CharField(max_length = 50)
     Gramos = models.CharField(max_length = 50)
